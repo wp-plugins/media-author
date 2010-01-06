@@ -3,8 +3,8 @@ Contributors: johnl1479
 Donate link: http://johnluetke.net/donate
 Tags: media, attachment, post, author
 Requires at least: 2.8.6
-Tested up to: 2.9
-Stable tag: 1.0
+Tested up to: 2.9.1
+Stable tag: 1.0.1
 
 Allows you to change the author of a piece of media
 
@@ -32,6 +32,10 @@ Not yet.
 1. The dropdown list added the the "Edit Attachment" screen of Media Library
 
 == Changelog ==
+
+= 1.0.1 =
+* Sorted user list alphabetically
+* Author is selected by default in the list.
 
 = 1.0 =
 * Initial public version
