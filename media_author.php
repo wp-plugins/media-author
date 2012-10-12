@@ -4,7 +4,7 @@ Plugin Name: Media Author
 Plugin URI: http://wordpress.com/extend/plugins/media-author
 Description: Allows you to change the author of a piece of media
 Plugin Author: John Luetke
-Version: 1.0.1
+Version: 1.0.2
 Author URI: http://johnluetke.net
 */
 
@@ -35,12 +35,12 @@ function media_author_sort($a, $b) {
  * Wordpress ticket #11705
  */
 function media_author_plugin_dropdown ($args) {
-	$user_list = get_users_of_blog();
+	$user_list = get_users();
 	$user_array = array();
 
 	foreach ($user_list as $user) {
 		$user_array[] = array(
-			'value' => $user->user_id,
+			'value' => $user->ID,
 			'label' => $user->display_name
 		);
 	}
@@ -60,13 +60,15 @@ function media_author_plugin_dropdown ($args) {
 function media_author_plugin_dropdown_2($args) {
 	$author_id = get_post($_GET['attachment_id'])->post_author;
 	
-	$user_list = get_users_of_blog();
+	$user_list = get_users();
 	usort($user_list, 'media_author_sort');
+
+	print_r($user_list);
 
 	$html = "<select name='post_author' id='post_author'>";
 
 	foreach ($user_list as $user) {
-		$html .= "<option value='".$user->user_id."'".(($author_id == $user->user_id)? " selected='selected'" : "/").">".$user->display_name."</option>";
+		$html .= "<option value='".$user->ID."'".(($author_id == $user->ID)? " selected='selected'" : "").">".$user->display_name."</option>";
 	}
 
 	$html .= "</select>";
