@@ -4,7 +4,7 @@ Plugin Name: Media Author
 Plugin URI: http://wordpress.com/extend/plugins/media-author
 Description: Allows you to change the author of a piece of media
 Plugin Author: John Luetke
-Version: 1.0.2
+Version: 1.0.3
 Author URI: http://johnluetke.net
 */
 
@@ -62,8 +62,6 @@ function media_author_plugin_dropdown_2($args) {
 	
 	$user_list = get_users();
 	usort($user_list, 'media_author_sort');
-
-	print_r($user_list);
 
 	$html = "<select name='post_author' id='post_author'>";
 

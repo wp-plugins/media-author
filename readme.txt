@@ -33,6 +33,9 @@ Not yet.
 
 == Changelog ==
 
+= 1.0.3 =
+* Removing left over debugging code 
+
 = 1.0.2 =
 * Fixed HTML error (thanks Ov3rfly)
 * Removed use of deprecated function (thanks Ov3rfly)
