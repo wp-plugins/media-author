@@ -4,7 +4,7 @@ Plugin Name: Media Author
 Plugin URI: http://wordpress.com/extend/plugins/media-author
 Description: Allows you to change the author of a piece of media
 Plugin Author: John Luetke
-Version: 1.0.3
+Version: 1.0.4
 Author URI: http://johnluetke.net
 */
 
@@ -57,7 +57,17 @@ function media_author_plugin_dropdown ($args) {
 /*
  * This is the usable method, as of Wordpress 2.9.0
  */
-function media_author_plugin_dropdown_2($args) {
+function media_author_plugin_dropdown_2($args, $post = false) {
+
+	if ( isset( $_GET['attachment_id'] ) )
+		$post_id = $_GET['attachment_id'];
+	}
+	else if ( $post ) {
+		$post_id = $post->ID;
+	}
+	else {
+		return $args;
+	}
 	$author_id = get_post($_GET['attachment_id'])->post_author;
 	
 	$user_list = get_users();
@@ -81,5 +91,5 @@ function media_author_plugin_dropdown_2($args) {
 }
 
 add_filter('attachment_fields_to_save', 'media_author_plugin_save', 5);
-add_filter('attachment_fields_to_edit', 'media_author_plugin_dropdown_2', 5);
+add_filter('attachment_fields_to_edit', 'media_author_plugin_dropdown_2', 5, 2);
 
