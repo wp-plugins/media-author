@@ -59,7 +59,7 @@ function media_author_plugin_dropdown ($args) {
  */
 function media_author_plugin_dropdown_2($args, $post = false) {
 
-	if ( isset( $_GET['attachment_id'] ) )
+	if ( isset( $_GET['attachment_id'] ) ) {
 		$post_id = $_GET['attachment_id'];
 	}
 	else if ( $post ) {
@@ -68,7 +68,7 @@ function media_author_plugin_dropdown_2($args, $post = false) {
 	else {
 		return $args;
 	}
-	$author_id = get_post($_GET['attachment_id'])->post_author;
+	$author_id = get_post( $post_id )->post_author;
 	
 	$user_list = get_users();
 	usort($user_list, 'media_author_sort');
