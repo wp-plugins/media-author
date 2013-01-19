@@ -10,8 +10,8 @@ Author URI: http://johnluetke.net
 
 function media_author_plugin_save ($args) {
 	
-	if (isset($_POST['post_author'])) {
-		$args['post_author'] = $_POST['post_author'];
+	if (isset($_POST['media_author'])) {
+		$args['post_author'] = $_POST['media_author'];
 	}
 
 	return $args;
@@ -45,7 +45,7 @@ function media_author_plugin_dropdown ($args) {
 		);
 	}
 	
-	$users = array('post_author' => array (
+	$users = array('media_author' => array (
 		'label' => __('Author'),
 		'input' => 'select',
 		'value' => $user_array,
@@ -73,7 +73,7 @@ function media_author_plugin_dropdown_2($args, $post = false) {
 	$user_list = get_users();
 	usort($user_list, 'media_author_sort');
 
-	$html = "<select name='post_author' id='post_author'>";
+	$html = "<select name='media_author' id='media_author'>";
 
 	foreach ($user_list as $user) {
 		$html .= "<option value='".$user->ID."'".(($author_id == $user->ID)? " selected='selected'" : "").">".$user->display_name."</option>";
@@ -81,7 +81,7 @@ function media_author_plugin_dropdown_2($args, $post = false) {
 
 	$html .= "</select>";
 	
-	$users = array('post_author' => array (
+	$users = array('media_author' => array (
 		'label' => __('Author'),
 		'input' => 'html',
 		'html' => $html,
