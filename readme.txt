@@ -33,6 +33,10 @@ Not yet.
 
 == Changelog ==
 
+= 1.0.4 =
+* Applying fix from Ov3rfly. See ticket #1590
+* Updated for Wordpress 3.5
+
 = 1.0.3 =
 * Removing left over debugging code 
 
