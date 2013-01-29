@@ -3,7 +3,7 @@ Contributors: johnl1479
 Donate link: http://johnluetke.net/donate
 Tags: media, attachment, post, author
 Requires at least: 2.8.6
-Tested up to: 3.5
+Tested up to: 3.5.1
 Stable tag: 1.0.4
 
 Allows you to change the author of a piece of media
